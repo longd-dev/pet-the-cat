@@ -96,7 +96,11 @@ const App = () => {
 
   return (
     <div
-      className='min-h-screen flex flex-col items-center justify-center bg-gray-100 gap-4 relative overflow-hidden cursor-none'
+      className='min-h-screen flex flex-col items-center justify-center gap-4 relative overflow-hidden cursor-none'
+      style={{
+        // Elegant, soft pastel vertical gradient background
+        background: "linear-gradient(180deg, #ede7f6 0%, #fdf6e3 100%)",
+      }}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
     >
       {(showConfetti || catImage) && (
