@@ -7,12 +7,6 @@ const App = () => {
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [message, setMessage] = useState("Click the cat to pet it 🐾");
 
-  const getMood = () => {
-    if (pets < 5) return "😐 The cat is watching you...";
-    if (pets < 10) return "😸 The cat is happy!";
-    return "😻 The cat loves you!";
-  };
-
   const funnyMessages = [
     "Purrrr 😌",
     "Hey! Watch the whiskers!",
@@ -22,6 +16,23 @@ const App = () => {
     "Okay okay, I get it!",
     "This is… acceptable.",
     "MORE PETS. NOW.",
+    "Excuse me, I was napping.",
+    "Oh wow. You’re still here.",
+    "Yes… obey the cat.",
+    "Careful! This model bites.",
+    "You may continue.",
+    "I allow this.",
+    "Hmm. Suspiciously good petting.",
+    "That was a premium pet.",
+    "I will remember this.",
+    "Wow. Ten out of ten.",
+    "Again. Do it again.",
+    "My floof thanks you.",
+    "Human… you have potential.",
+    "This pleases the cat.",
+    "You have unlocked chin scratches.",
+    "Illegal levels of cuteness detected.",
+    "Pet harder. Emotionally.",
   ];
 
   const handlePet = () => {
