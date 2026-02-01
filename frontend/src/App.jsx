@@ -99,22 +99,39 @@ const App = () => {
       className='min-h-screen flex flex-col items-center justify-center bg-gray-100 gap-4 relative overflow-hidden cursor-none'
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
     >
-      {showConfetti && (
-        <div className='fixed top-0 left-0 w-full flex flex-col items-center z-50 pointer-events-none select-none'>
-          <Confetti width={window.innerWidth} height={window.innerHeight} />
-          <AnimatePresence>
-            {confettiMessage && (
-              <motion.div
-                className='mt-4 text-3xl font-bold text-center text-gray-900 drop-shadow-lg'
-                initial={{ y: -50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -50, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                {confettiMessage}
-              </motion.div>
+      {(showConfetti || catImage) && (
+        <div className='flex flex-col items-center w-full mt-4 space-y-4 sm:space-y-6 pointer-events-none select-none'>
+          {showConfetti && (
+            <Confetti width={window.innerWidth} height={window.innerHeight} />
+          )}
+          <div className='flex flex-col items-center w-full space-y-4 sm:space-y-6'>
+            <div className='min-h-[72px] flex justify-center'>
+              <AnimatePresence>
+                {confettiMessage && (
+                  <motion.div
+                    className='text-3xl font-bold text-center text-gray-900 drop-shadow-lg bg-white/80 rounded-xl px-4 py-2 mb-2'
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -50, opacity: 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    style={{ zIndex: 60 }}
+                  >
+                    {confettiMessage}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            {catImage && (
+              <div className='w-40 h-40 sm:w-48 sm:h-48 relative flex justify-center items-center'>
+                <img
+                  src={catImage}
+                  alt='milestone cat'
+                  className='w-full h-full object-cover rounded-xl shadow-lg border-4 border-white'
+                  style={{ zIndex: 55 }}
+                />
+              </div>
             )}
-          </AnimatePresence>
+          </div>
         </div>
       )}
 
@@ -133,17 +150,6 @@ const App = () => {
       >
         🤚
       </motion.div>
-
-      {/* Milestone Cat Image */}
-      {catImage && (
-        <div className='mt-4 w-40 h-40 relative z-10'>
-          <img
-            src={catImage}
-            alt='milestone cat'
-            className='w-full h-full object-cover rounded-xl shadow-lg'
-          />
-        </div>
-      )}
 
       {/* Cat */}
       <motion.div
