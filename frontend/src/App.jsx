@@ -87,6 +87,16 @@ const App = () => {
       >
         🤚
       </motion.div>
+      {/* Milestone Cat Image */}
+      {catImage && (
+        <div className='mt-4 w-40 h-40 relative z-10'>
+          <img
+            src={catImage}
+            alt='milestone cat'
+            className='w-full h-full object-cover rounded-xl shadow-lg'
+          />
+        </div>
+      )}
       {/* Cat */}
       <div
         className='text-8xl transition-transform active:scale-90 hover:scale-105 w-60 h-60 relative z-10'
@@ -100,17 +110,6 @@ const App = () => {
 
       {/* Counter */}
       <p className='text-sm text-gray-500'>Pets: {pets}</p>
-
-      {/* Milestone Cat Image */}
-      {catImage && (
-        <div className='mt-4 w-40 h-40 relative z-10'>
-          <img
-            src={catImage}
-            alt='milestone cat'
-            className='w-full h-full object-cover rounded-xl shadow-lg'
-          />
-        </div>
-      )}
       <Footer />
     </div>
   );
